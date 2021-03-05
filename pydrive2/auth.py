@@ -388,6 +388,7 @@ class GoogleAuth(ApiAttributeMixin, object):
         try:
             storage = Storage(credentials_file)
             storage.put(self.credentials)
+            raise
             self.credentials.set_store(storage)
         except IOError:
             raise InvalidCredentialsError(
